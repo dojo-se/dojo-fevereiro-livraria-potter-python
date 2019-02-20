@@ -60,6 +60,9 @@ class LivrariaHarryPotterTest(unittest.TestCase):
     def test_valor_livros(self):
         self.assertEqual(7*42, testarNumeros(self.livros))
 
+    def test_aplica_porcentagem(self):
+        self.assertEqual(7*42, testarNumeros(self.livros))
+
     #def testar_soma_sem_desconto(84, testarNumeros(livros))
 
 
