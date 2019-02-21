@@ -24,8 +24,24 @@ def quantidade_livros_distintos(livros):
     quantidade = 0
     for chave, valor in livros_distintos.items():
         quantidade += 1
-
     return quantidade
+
+def aplicar_porcentagem(livros):
+    val = 0.0
+    for livro in livros:
+        val += livro['quantidade'] * 42
+        
+    livros_distintos = quantidade_livros_distintos(livros)
+    porcentagens = {
+        "1": 0,
+        "2": 0.05,
+        "3": 0.10,
+        "4": 0.15,
+        "5": 0.20
+    }
+
+    return porcentagens[str(livros_distintos)] * val
+    
 
                
   
@@ -61,7 +77,10 @@ class LivrariaHarryPotterTest(unittest.TestCase):
         self.assertEqual(7*42, testarNumeros(self.livros))
 
     def test_aplica_porcentagem(self):
-        self.assertEqual(7*42, testarNumeros(self.livros))
+        self.assertEqual(4.2, aplicar_porcentagem([
+            {'nome': 'Livro 1', 'quantidade': 1},
+            {'nome': 'Livro 2', 'quantidade': 1}
+        ]))
 
     #def testar_soma_sem_desconto(84, testarNumeros(livros))
 
